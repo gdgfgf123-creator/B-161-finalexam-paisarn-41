@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float moveSpeed = 5f;
-    private float jumpForce = 10f;
-
+    [SerializeField]private float moveSpeed = 5f;
+    [SerializeField]private float jumpForce = 10f;
+    [field: SerializeField]private bool IsInvulnerable = false;
     private Rigidbody2D rd;
     private void Start()
     {
@@ -19,4 +19,14 @@ public class Player : MonoBehaviour
             rd.linearVelocity = new Vector2(rd.linearVelocity.x, jumpForce);
         }
     }
+    public void SetMoveSpeed(float NewSpeed)
+    {
+        moveSpeed *= NewSpeed;
+    }
+    public void SetInvulnerabilty(bool IsEnabled)
+    {
+        IsEnabled = true;
+        IsInvulnerable = IsEnabled;
+    }
+    
 }
